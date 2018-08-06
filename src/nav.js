@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const StyledUl = styled.div`
   list-style-type: none;
   padding: 0;
   width: 100%;
 
-  li {
+  li,
+  li a {
     padding: 10px;
+    width: 100%;
   }
 
-  li.active {
+  a.active {
     color: #ffffff;
     background-color: red;
   }
 
-  li:hover {
+  a:hover {
     background-color: tomato;
     cursor: pointer;
   }
@@ -29,23 +32,20 @@ export default class LeftNavigation extends Component {
   render() {
     return (
       <StyledUl>
-        <li
-          className={this.props.active === 'Users' ? 'active' : ''}
-          onClick={() => this.notify('Users')}
-        >
-          Users
+        <li>
+          <NavLink to="/Users" activeClassName="active">
+            Users
+          </NavLink>
         </li>
-        <li
-          className={this.props.active === 'Albums' ? 'active' : ''}
-          onClick={() => this.notify('Albums')}
-        >
-          Albums
+        <li>
+          <NavLink to="/Albums" activeClassName="active">
+            Albums
+          </NavLink>
         </li>
-        <li
-          className={this.props.active === 'Gallery' ? 'active' : ''}
-          onClick={() => this.notify('Gallery')}
-        >
-          Gallery
+        <li>
+          <NavLink to="/Gallery" activeClassName="active">
+            Gallery
+          </NavLink>
         </li>
       </StyledUl>
     );

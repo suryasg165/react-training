@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { CircleLoader } from 'react-spinners';
+import React, { Component } from "react";
+import axios from "axios";
+import { CircleLoader } from "react-spinners";
 
-import Card from './card';
+import Card from "./card";
 
 class Gallery extends Component {
   state = { photos: [], loading: true };
@@ -19,20 +19,20 @@ class Gallery extends Component {
     return (
       <React.Fragment>
         {this.state.loading && (
-          <div style={{ padding: '100px', width: '100%', height: '200px' }}>
+          <div style={{ padding: "100px", width: "100%", height: "200px" }}>
             <CircleLoader
-              size="100"
-              color={'red'}
+              size={100}
+              color={"red"}
               loading={this.state.loading}
             />
           </div>
         )}
         <div
           style={{
-            display: 'flex',
+            display: "flex",
             flex: 1,
-            padding: '10px',
-            flexWrap: 'wrap'
+            padding: "10px",
+            flexWrap: "wrap"
           }}
         >
           {this.state.photos.map((photo, i) => <Card key={i} {...photo} />)}
